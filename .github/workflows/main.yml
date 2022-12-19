@@ -3,7 +3,7 @@ name: 'My Workflow'
 on:
    push:
     branches:
-      - master
+      - main
     paths:
       - '**/versions/**.md'
 
