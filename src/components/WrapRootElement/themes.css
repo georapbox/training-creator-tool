@@ -1,0 +1,46 @@
+:root {
+  --menu-drawer-width: 340px;
+
+  --font-family: 'Roboto', sans-serif;
+  --base-font-size: 16px;
+
+  --slide-color: #444;
+  --slide-bg-color: #fff;
+
+  --anchor-color: #0766d5;
+  --anchor-visited-color: #0766d5;
+
+  --menu-drawer-anchor-color: #000;
+  --menu-drawer-anchor-visited-color: #000;
+
+  --danger-border-color: tomato;
+  --danger-bg-color: #f9f9f9;
+  --danger-color: #444;
+
+  --hint-border-color: #ccc;
+  --hint-bg-color: #f9f9f9;
+  --hint-color: #444;
+
+  --table-border-color: #ddd;
+  --table-even-rows-bg-color: #ddd;
+  --table-even-rows-color: #444;
+  --table-odd-rows-bg-color: #fff;
+  --table-odd-rows-color: #444;
+  --table-header-bg-color: #3399ff;
+  --table-header-color: #fff;
+  --table-rows-hover-bg-color: #cecece;
+  --table-rows-hover-color: #444;
+
+  --navigation-buttons-container-bg-color: rgba(255,255,255,0.6);
+  --navigation-button-bg-color: #4751f0;
+  --navigation-button-color: #fff;
+  --navigation-button-hover-bg-color: #0916dd;
+  --navigation-button-hover-color: #fff;
+  --navigation-button-disabled-bg-color: rgba(0, 0, 0, 0.12);
+  --navigation-button-disabled-color: rgba(0, 0, 0, 0.26);
+
+  --menu-icon-bg-color: #0088ff;
+  --menu-icon-color: #fff;
+  --menu-icon-hover-bg-color: #0761af;
+  --menu-icon-hover-color: #fff;
+}

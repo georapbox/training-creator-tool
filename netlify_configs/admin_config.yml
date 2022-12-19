@@ -1,0 +1,42 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
+
+publish_mode: editorial_workflow
+local_backend: true
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: trainings
+    label: Trainings
+    label_singular: 'Training'
+    folder: content/trainings
+    identifier_field: title
+    create: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+  - name: versions
+    label: Versions
+    label_singular: 'Version'
+    folder: content/versions
+    identifier_field: title
+    create: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: release date
+        name: releaseDate
+        widget: date
+        format: 'HH:mm - MMM Do YY'
+        date_format: true
+        time_format: true

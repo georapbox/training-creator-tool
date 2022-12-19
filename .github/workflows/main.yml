@@ -1,0 +1,71 @@
+name: 'My Workflow'
+
+on:
+   push:
+    branches:
+      - master
+    paths:
+      - '**/versions/**.md'
+
+permissions: write-all
+
+jobs:
+  deploy:
+    name: 'Deploy to Netlify.'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v34
+      - name: List all changed files
+        id: list-changed-files
+        run: |
+          files=""
+          coreChanged="false"
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            dir="$(dirname $file)"
+
+            if [ $dir = "content/versions" ]
+            then
+              pureFileName="$(basename -s .md $file)"
+
+              if [ $pureFileName = "__core__" ]
+              then
+                coreChanged="true"
+              fi
+
+              files+=$pureFileName
+              files+=","
+            fi
+          done
+
+          if [ $coreChanged = "true" ]
+          then
+            files=""
+
+            for file in "content/versions"/*
+            do
+              pureFileName="$(basename -s .md $file)"
+
+              if [ $pureFileName != "__core__" ]
+              then
+                files+=$pureFileName
+                files+=","
+              fi
+            done
+          fi
+
+          echo "---- CHRISTOS MESSAGE: The trainings files are going to be deployed: \"$files\""
+
+          echo ::set-output name=changedFiles::${files}
+      - uses: ./.github/actions/jsmrcaga-action
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          install_command: npm install
+          build_directory: public
+          deploy_alias: ${{ steps.list-changed-files.outputs.changedFiles }}
+          node_version: 14
