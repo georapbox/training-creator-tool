@@ -122,7 +122,8 @@ This training is de-activated or it has no content
         <TrainingPage
           key={page.title}
           pageContext={{
-            body: page.body
+            body: page.body,
+            mode: 'preview'
           }}
         />
       ))}

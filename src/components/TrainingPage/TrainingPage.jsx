@@ -9,23 +9,25 @@ import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/
 deckDeckGoHighlightElement();
 
 const TrainingPage = (props) => {
-  const { body, prevSlug, nextSlug, title, currentPageIndex, numOfPages, type } = props?.pageContext;
+  const { body, prevSlug, nextSlug, title, currentPageIndex, numOfPages, type, mode = 'live' } = props?.pageContext;
 
   const { navigatePrevious, navigateNext, canGoPrevious, canGoNext } = useKeyboardNavigation(prevSlug, nextSlug);
 
   return (
     <div className="training-page">
       <Helmet title={title} />
-      <Paper elevation={4} className="navigation-buttons-container">
-        <NavigationButtons
-          navigatePrevious={navigatePrevious}
-          navigateNext={navigateNext}
-          canGoPrevious={canGoPrevious}
-          canGoNext={canGoNext}
-          currentPage={currentPageIndex}
-          totalPages={numOfPages}
-        />
-      </Paper>
+      {mode === 'live' ? (
+        <Paper elevation={4} className="navigation-buttons-container">
+          <NavigationButtons
+            navigatePrevious={navigatePrevious}
+            navigateNext={navigateNext}
+            canGoPrevious={canGoPrevious}
+            canGoNext={canGoNext}
+            currentPage={currentPageIndex}
+            totalPages={numOfPages}
+          />
+        </Paper>
+      ) : null}
 
       {/* FIXME If type === indexing use another compoent. and check for other types*/}
       {type === 'content' ? <SlidePage body={body} /> : <SlidePage body={body} />}
