@@ -968,7 +968,7 @@ sections:
 
           In the above example, `age > 18` will evaluate to `true`, so the block of code will be excecuted.
 
-      - pageTitle: p...else statement
+      - pageTitle: ...else statement
         isActive: true
         body: |-
 
