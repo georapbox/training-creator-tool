@@ -34,7 +34,7 @@
   --table-rows-hover-bg-color: rgb(170 170 170 / 35%);
   --table-rows-hover-color: #655e5f;
 
-  --navigation-buttons-container-bg-color: rgba(255,255,255,0.4);
+  --navigation-buttons-container-bg-color: #fff;
   --navigation-button-bg-color: #4751f0;
   --navigation-button-color: #fff;
   --navigation-button-hover-bg-color: #0916dd;
@@ -50,4 +50,6 @@
   --homepage-bg-color: #1876d1;
   --homepage-color: #fff;
   --homepage-logo-color: var(--homepage-color);
+
+  --bottom-corner-design-color: #f4f4f4;
 }

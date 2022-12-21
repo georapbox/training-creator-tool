@@ -45,7 +45,7 @@ body * {
   position: fixed;
   bottom: 0.5rem;
   left: 0.25rem;
-  z-index: 5;
+  z-index: 15;
   background-color: var(--menu-icon-bg-color);
   color: var(--menu-icon-color);
   padding: 0.25rem 0.625rem;
@@ -66,6 +66,7 @@ body * {
   padding: 0.5rem 1.25rem;
   padding-left: 4rem;
   background-color: var(--navigation-buttons-container-bg-color);
+  z-index: 5;
 }
 
 .MuiPaper-root.navigation-buttons-container button {
@@ -104,6 +105,10 @@ body * {
   bottom: var(--navigation-height);
   right: 0;
   width: 40%;
+}
+
+.slide-page .bottom-corner-design * {
+  fill: var(--bottom-corner-design-color);
 }
 
 .content-slide {
