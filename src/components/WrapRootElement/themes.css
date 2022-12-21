@@ -4,7 +4,10 @@
   --font-family: 'Roboto', sans-serif;
   --base-font-size: 16px;
 
-  --slide-color: #444;
+  --header-1-color: #0b2c5b;
+  --bold-text-color: #0b2c5b;
+
+  --slide-color: #655e5f;
   --slide-bg-color: #fff;
 
   --anchor-color: #0766d5;
@@ -15,23 +18,23 @@
 
   --danger-border-color: tomato;
   --danger-bg-color: #f9f9f9;
-  --danger-color: #444;
+  --danger-color: #655e5f;
 
   --hint-border-color: #ccc;
   --hint-bg-color: #f9f9f9;
-  --hint-color: #444;
+  --hint-color: #655e5f;
 
   --table-border-color: #ddd;
-  --table-even-rows-bg-color: #ddd;
-  --table-even-rows-color: #444;
-  --table-odd-rows-bg-color: #fff;
-  --table-odd-rows-color: #444;
+  --table-even-rows-bg-color: rgb(200 200 200 / 35%);
+  --table-even-rows-color: #655e5f;
+  --table-odd-rows-bg-color: rgb(255, 255, 255 / 40%);
+  --table-odd-rows-color: #655e5f;
   --table-header-bg-color: #3399ff;
   --table-header-color: #fff;
-  --table-rows-hover-bg-color: #cecece;
-  --table-rows-hover-color: #444;
+  --table-rows-hover-bg-color: rgb(170 170 170 / 35%);
+  --table-rows-hover-color: #655e5f;
 
-  --navigation-buttons-container-bg-color: rgba(255,255,255,0.6);
+  --navigation-buttons-container-bg-color: rgba(255,255,255,0.4);
   --navigation-button-bg-color: #4751f0;
   --navigation-button-color: #fff;
   --navigation-button-hover-bg-color: #0916dd;
@@ -43,4 +46,8 @@
   --menu-icon-color: #fff;
   --menu-icon-hover-bg-color: #0761af;
   --menu-icon-hover-color: #fff;
+
+  --homepage-bg-color: #1876d1;
+  --homepage-color: #fff;
+  --homepage-logo-color: var(--homepage-color);
 }

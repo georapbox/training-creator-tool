@@ -4,17 +4,38 @@ import { Helmet } from 'react-helmet';
 import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation';
 import { NavigationButtons } from '../NavigationButtons/NavigationButtons';
 import { SlidePage } from '../SlidePage/SlidePage';
+import { Homepage } from '../Homepage/Homepage';
 
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 deckDeckGoHighlightElement();
 
 const TrainingPage = (props) => {
-  const { body, prevSlug, nextSlug, title, currentPageIndex, numOfPages, type, mode = 'live' } = props?.pageContext;
+  const {
+    body,
+    prevSlug,
+    nextSlug,
+    title,
+    currentPageIndex,
+    numOfPages,
+    type,
+    data = {},
+    mode = 'live'
+  } = props?.pageContext;
 
   const { navigatePrevious, navigateNext, canGoPrevious, canGoNext } = useKeyboardNavigation(prevSlug, nextSlug);
 
+  const renderSlide = () => {
+    if (type === 'content') {
+      return <SlidePage body={body} />;
+    } else if (type === 'homepage') {
+      return <Homepage {...data} />;
+    } else {
+      return <SlidePage body={body} />;
+    }
+  };
+
   return (
-    <div className="training-page">
+    <>
       <Helmet title={title} />
       {mode === 'live' ? (
         <Paper elevation={4} className="navigation-buttons-container">
@@ -29,9 +50,8 @@ const TrainingPage = (props) => {
         </Paper>
       ) : null}
 
-      {/* FIXME If type === indexing use another compoent. and check for other types*/}
-      {type === 'content' ? <SlidePage body={body} /> : <SlidePage body={body} />}
-    </div>
+      {renderSlide()}
+    </>
   );
 };
 

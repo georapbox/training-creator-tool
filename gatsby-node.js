@@ -294,15 +294,11 @@ This training is de-activated or it has no content - 2
       const homepage = {
         slug: '/',
         title: 'Home page',
-        type: 'indexing',
-        body: `
-<div style="text-align: center">
-
-# ${training.frontmatter.title} training
-
-[Start Presentation](${allPages[0].slug})
-</div>
-          `
+        type: 'homepage',
+        data: {
+          title: training.frontmatter.title,
+          startPresentationSlug: allPages[0].slug
+        }
       };
 
       numOfPages++;
@@ -326,6 +322,7 @@ This training is de-activated or it has no content - 2
             body: page.body,
             numOfPages,
             type: page.type || 'content',
+            data: page.data || {},
             trainingsData
           }
         });
